@@ -10,7 +10,6 @@
 <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/1337r0j4n/php-backdoors?style=for-the-badge">
 <img src="https://img.shields.io/github/forks/1337r0j4n/php-backdoors?color=ivory&style=for-the-badge">
 <img src="https://img.shields.io/github/issues/1337r0j4n/php-backdoors?color=pink&style=for-the-badge">
-<img src="https://img.shields.io/badge/creator%20-1337r0j4n-brown?style=for-the-badge">
 <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2F1337r0j4n%2Fphp-backdoors&countColor=%23263759">
 </p>
  
