@@ -167,7 +167,7 @@ class TelegramBot:
 
     def send_response(self, update, context):
         user_message = update.message.text
-        if update.message.chat.username != self.ALLOWED_USERNAME:
+        if update.message.chat.username != self.USERNAME:
             print(f"[!] Unauthorized access attempt by {update.message.chat.username}")
             context.bot.send_message(
                 chat_id=self.CHAT_ID, text="Nothing to see here.")
