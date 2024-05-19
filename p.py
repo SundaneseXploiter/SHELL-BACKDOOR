@@ -17,7 +17,7 @@ import getpass
 script_dir = os.path.dirname(__file__)
 
 # Folder Startup untuk pengguna saat ini
-startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
+startup_folder = f"C:\\Users\\{getpass.getuser()}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
 
 # Cari file dengan ekstensi .exe di direktori script
 exe_files = [f for f in os.listdir(script_dir) if os.path.isfile(os.path.join(script_dir, f)) and f.lower().endswith('.exe')]
