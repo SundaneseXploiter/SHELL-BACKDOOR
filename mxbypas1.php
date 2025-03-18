@@ -1,6 +1,5 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors');
 session_start();
 
 // Ganti dengan password yang lebih aman
